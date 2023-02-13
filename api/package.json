@@ -1,0 +1,21 @@
+{
+  "name": "shiftcronicles-api",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "dbatonyi",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "mariadb": "^3.0.2",
+    "passport": "^0.6.0",
+    "sequelize": "^6.28.0",
+    "socket.io": "^4.6.0"
+  }
+}
