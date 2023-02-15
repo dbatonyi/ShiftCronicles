@@ -8,7 +8,7 @@ module.exports = {
   },
   api: {
     frontendUrl: "",
-    passportSecret: "",
+    jwtSecret: "",
   },
   frontend: {},
 };

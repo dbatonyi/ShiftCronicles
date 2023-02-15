@@ -1,7 +1,9 @@
 # ShiftCronicles Documentation
 
 **Author:** dbatonyi
+
 **Stack:** Node.js, React
+
 **Main modules:** Express, Socket.io, Next.js, Passport.js
 
 ## Description:
