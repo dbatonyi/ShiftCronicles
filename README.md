@@ -4,7 +4,7 @@
 
 **Stack:** Node.js, React
 
-**Main modules:** Express, Socket.io, Next.js, Passport.js
+**Main modules:** Express, ~~Socket.io~~, Next.js, ~~Passport.js~~
 
 ## Description:
 
@@ -14,6 +14,6 @@ ShiftCronicles is a web-based platform that aims to revolutionize the way compan
 
 **2023 Q1:**
 
-- Implement connection between the API and the Frontend via socket.io
-- Registration/Login using Passport.js
+- Implement connection between the API and the Frontend via ~~socket.io~~ ( Socket.io overkill )
+- Registration/Login using ~~Passport.js~~ ( Not needed )
 - Creating an installer that sets up the application on a user-friendly interface and connects it to the server

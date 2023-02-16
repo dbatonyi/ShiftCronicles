@@ -8,7 +8,14 @@ module.exports = {
   },
   api: {
     frontendUrl: "",
-    jwtSecret: "",
+    smtpHost: "",
+    smtpEmail: "",
+    smtpPassword: "",
+    jwtkey: "",
+    apiToken: "",
   },
-  frontend: {},
+  frontend: {
+    serverUrl: "",
+    apiToken: "",
+  },
 };
