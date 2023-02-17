@@ -4,6 +4,11 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const config = require("../config")["api"];
+let utils = require("./utils");
+
+//test config
+
+const testconfig = require("../config-example");
 
 //CORS
 app.use(
@@ -23,22 +28,28 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-//Models
-const models = require("./models");
+const configCheck = utils.checkConfigFileIsEmpty(config);
 
-//Sync Database
+//setupRoutes
+const setupRoute = require("./routes/setupRoutes.js")(app);
 
-(async function () {
-  try {
-    const syncDB = await models.sequelize.sync();
-    console.log("Nice! Database looks fine");
-  } catch (error) {
-    console.log(error, "Something went wrong with the Database Update!");
-  }
-})();
+if (!configCheck) {
+  //Models
+  const models = require("./models");
 
-//Routes
-const route = require("./routes/route.js")(app);
+  //Sync Database
+  (async function () {
+    try {
+      const syncDB = await models.sequelize.sync();
+      console.log("Nice! Database looks fine");
+    } catch (error) {
+      console.log(error, "Something went wrong with the Database Update!");
+    }
+  })();
+
+  //APIRoutes
+  const apiRoute = require("./routes/apiRoutes.js")(app);
+}
 
 //Create server
 app.listen(5000, function (err) {
