@@ -14,8 +14,4 @@ module.exports = {
     jwtkey: "",
     apiToken: "",
   },
-  frontend: {
-    serverUrl: "",
-    apiToken: "",
-  },
 };

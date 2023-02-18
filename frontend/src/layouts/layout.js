@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-const config = require("../../../config")["frontend"];
+const config = require("../../config");
 
 export const AuthContext = React.createContext(null);
 

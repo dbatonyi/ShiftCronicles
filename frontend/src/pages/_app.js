@@ -1,6 +1,10 @@
 import Layout from "../layouts/Layout";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, ...AppProps }) {
+  if (["/installer"].includes(AppProps.router.pathname)) {
+    return <Component {...pageProps} />;
+  }
+
   return (
     <Layout>
       <Component {...pageProps} />

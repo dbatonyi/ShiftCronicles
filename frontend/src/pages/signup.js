@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-const config = require("../../../config")["frontend"];
+const config = require("../../config");
 
 const SignUp = () => {
   const router = useRouter();

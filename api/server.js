@@ -6,10 +6,6 @@ const cookieParser = require("cookie-parser");
 const config = require("../config")["api"];
 let utils = require("./utils");
 
-//test config
-
-const testconfig = require("../config-example");
-
 //CORS
 app.use(
   cors({
@@ -30,9 +26,6 @@ app.use(bodyParser.json());
 
 const configCheck = utils.checkConfigFileIsEmpty(config);
 
-//setupRoutes
-const setupRoute = require("./routes/setupRoutes.js")(app);
-
 if (!configCheck) {
   //Models
   const models = require("./models");
@@ -49,6 +42,11 @@ if (!configCheck) {
 
   //APIRoutes
   const apiRoute = require("./routes/apiRoutes.js")(app);
+} else {
+  console.log("API is not properly configured.");
+
+  //setupRoutes
+  const setupRoute = require("./routes/setupRoutes.js")(app);
 }
 
 //Create server
