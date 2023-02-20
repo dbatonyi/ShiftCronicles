@@ -8,21 +8,18 @@ const Installer = () => {
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
-    const configurationCheck = async () => {
+    const apiMaintenanceCheck = async () => {
       try {
-        const data = await fetch(
-          `${config.serverUrl}/api/configuration-check`,
-          {
-            credentials: "include",
-          }
-        );
+        const data = await fetch(`${config.serverUrl}/api/maintenance-mode`, {
+          credentials: "include",
+        });
         setLoader(false);
       } catch (error) {
         router.push("/signin");
       }
     };
 
-    configurationCheck();
+    apiMaintenanceCheck();
   }, []);
 
   const submit = async (e) => {

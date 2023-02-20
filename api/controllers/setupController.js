@@ -2,26 +2,24 @@ const fs = require("fs");
 
 let utils = require("../utils");
 
-//test config
-
 const config = require("../../config");
 
 var exports = (module.exports = {});
 
-exports.configurationCheck = async function (req, res) {
+exports.maintenanceMode = async function (req, res) {
   const configCheck = utils.checkConfigFileIsEmpty(config);
 
   if (configCheck) {
     return res.json({
       status: "error",
-      message: "API is not properly configured.",
+      message: "API is in maintenance mode",
       errorCode: "CONFIG_EMPTY",
     });
   }
 
   return res.json({
     status: "error",
-    message: "API not working",
+    message: "API is in maintenance mode",
     errorCode: "API_ERROR",
   });
 };

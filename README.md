@@ -17,3 +17,4 @@ ShiftCronicles is a web-based platform that aims to revolutionize the way compan
 - Implement connection between the API and the Frontend :heavy_check_mark:
 - Registration/Login :heavy_check_mark:
 - Creating an installer that sets up the application on a user-friendly interface and connects it to the server :heavy_check_mark:
+- Multilingualism :heavy_check_mark:

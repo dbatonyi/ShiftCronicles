@@ -1,8 +1,11 @@
 import React from "react";
 import { useRouter } from "next/router";
+import useTranslation from "next-translate/useTranslation";
+import Link from "next/link";
 const config = require("../../config");
 
 const SignUp = () => {
+  const { t } = useTranslation("signup");
   const router = useRouter();
 
   const submit = async (e) => {
@@ -37,31 +40,37 @@ const SignUp = () => {
 
   return (
     <div className="shiftcronicles-signup">
+      <Link href="/signup" locale="en">
+        <h2>English</h2>
+      </Link>
+      <Link href="/signup" locale="hu">
+        <h2>Magyar</h2>
+      </Link>
       <div className="shiftcronicles-signup-container">
         <form
           className="shiftcronicles-signup-container__form"
           onSubmit={submit}
         >
-          <h1>Registration</h1>
+          <h1>{t("signupTitle")}</h1>
 
-          <label htmlFor="email">Email Address</label>
+          <label htmlFor="email">{t("signupEmail")}</label>
           <input className="text" name="email" type="email" required />
 
-          <label htmlFor="firstname">Firstname</label>
+          <label htmlFor="firstname">{t("signupFirstName")}</label>
           <input name="firstname" type="text" required />
 
-          <label htmlFor="lastname">Lastname</label>
+          <label htmlFor="lastname">{t("signupLastName")}</label>
           <input name="lastname" type="text" required />
 
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">{t("signupPassword")}</label>
           <input name="password" type="password" required />
 
-          <label htmlFor="repassword">Re-Password</label>
+          <label htmlFor="repassword">{t("signupRePassword")}</label>
           <input name="repassword" type="password" required />
 
           <div className="submit-btn">
             <button className="btn" type="submit">
-              Sign up
+              {t("signupSubmit")}
             </button>
           </div>
         </form>

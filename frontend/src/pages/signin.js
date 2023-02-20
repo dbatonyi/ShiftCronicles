@@ -1,8 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import Link from "next/link";
+import useTranslation from "next-translate/useTranslation";
 import { AuthContext } from "../layouts/Layout";
 
 const signIn = () => {
+  const { t } = useTranslation("signin");
+
   const { actions, authFailed } = useContext(AuthContext);
 
   const submit = async (e) => {
@@ -24,20 +27,26 @@ const signIn = () => {
 
   return (
     <div className="shiftcronicles-signin">
+      <Link href="/" locale="en">
+        <h2>English</h2>
+      </Link>
+      <Link href="/" locale="hu">
+        <h2>Magyar</h2>
+      </Link>
       <div className="shiftcronicles-signin__form-container">
         <form onSubmit={submit}>
-          <h1>Please sign in</h1>
+          <h1>{t("signInTitle")}</h1>
           {authFailed ? (
             <div className="shiftcronicles-signin__form-container--error">
-              Wrong email or password!
+              {t("signInAuthError")}
             </div>
           ) : (
             ""
           )}
-          <label htmlFor="email">Email Address</label>
+          <label htmlFor="email">{t("signInEmail")}</label>
           <input className="text" name="email" type="email" required />
 
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">{t("signInPassword")}</label>
           <input
             className="signin-password"
             name="password"
@@ -47,15 +56,15 @@ const signIn = () => {
 
           <div className="submit-btn">
             <button className="btn" type="submit">
-              Sign in
+              {t("signInSubmit")}
             </button>
           </div>
         </form>
         <div className="shiftcronicles-signin__form-container--password-reset">
-          <Link href="/password/new">Reset password!</Link>
+          <Link href="/password/new">{t("signInPassReset")}</Link>
         </div>
         <div className="shiftcronicles-signin__form-container--sign-up">
-          <Link href="/signup">I don't have a user yet!</Link>
+          <Link href="/signup">{t("signInRegistration")}</Link>
         </div>
       </div>
     </div>

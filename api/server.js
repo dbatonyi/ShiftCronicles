@@ -43,7 +43,7 @@ if (!configCheck) {
   //APIRoutes
   const apiRoute = require("./routes/apiRoutes.js")(app);
 } else {
-  console.log("API is not properly configured.");
+  console.log("API is in maintenance mode");
 
   //setupRoutes
   const setupRoute = require("./routes/setupRoutes.js")(app);
