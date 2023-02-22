@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import useTranslation from "next-translate/useTranslation";
 const config = require("../../config");
 
 const Installer = () => {
+  const { t } = useTranslation("installer");
   const router = useRouter();
 
   const [loader, setLoader] = useState(true);
@@ -55,42 +57,44 @@ const Installer = () => {
         <div className="shiftcronicles-installer">
           <div className="shiftcronicles-installer__form-container">
             <form onSubmit={submit}>
-              <h1>App configuration</h1>
+              <h1>{t("installerTitle")}</h1>
               <div className="form-group">
-                <h3>Database config:</h3>
-                <label htmlFor="db-username">DB Username</label>
+                <h3>{t("databaseConfig")}</h3>
+                <label htmlFor="db-username">{t("dbUsername")}</label>
                 <input name="db-username" type="text" required />
-                <label htmlFor="db-password">DB Password</label>
+                <label htmlFor="db-password">{t("dbPassword")}</label>
                 <input name="db-password" type="password" required />
-                <label htmlFor="db-name">Database name</label>
+                <label htmlFor="db-name">{t("dbName")}</label>
                 <input name="db-name" type="text" required />
-                <label htmlFor="db-host">Host name</label>
+                <label htmlFor="db-host">{t("dbHost")}</label>
                 <input name="db-host" type="text" required />
-                <label htmlFor="db-dialect">Dialect</label>
+                <label htmlFor="db-dialect">{t("dbDialect")}</label>
                 <select id="db-dialect" name="db-dialect">
-                  <option value="mariadb">MariaDB</option>
-                  <option value="postgres">PostgreSQL</option>
+                  <option value="mariadb">{t("dbDialectOptionMaria")}</option>
+                  <option value="postgres">
+                    {t("dbDialectOptionPostgre")}
+                  </option>
                 </select>
               </div>
               <div className="form-group">
-                <h3>API config:</h3>
-                <label htmlFor="frontend-url">Frontend URL</label>
+                <h3>{t("apiConfig")}</h3>
+                <label htmlFor="frontend-url">{t("frontendUrl")}</label>
                 <input name="frontend-url" type="text" required />
-                <p>Currently only yahoo account is allowed!</p>
-                <label htmlFor="smtp-host">SMTP Host</label>
+                <p>{t("smtpText")}</p>
+                <label htmlFor="smtp-host">{t("smtpHost")}</label>
                 <input name="smtp-host" type="text" required />
-                <label htmlFor="smtp-email">SMTP Email</label>
+                <label htmlFor="smtp-email">{t("smtpEmail")}</label>
                 <input name="smtp-email" type="text" required />
-                <label htmlFor="smtp-password">SMTP Password</label>
+                <label htmlFor="smtp-password">{t("smtpPassword")}</label>
                 <input name="smtp-password" type="password" required />
-                <label htmlFor="jwt-key">JWT Key</label>
+                <label htmlFor="jwt-key">{t("jwtKey")}</label>
                 <input name="jwt-key" type="text" required />
-                <label htmlFor="api-token">API Token</label>
+                <label htmlFor="api-token">{t("apiToken")}</label>
                 <input name="api-token" type="text" required />
               </div>
               <div className="submit-btn">
                 <button className="btn" type="submit">
-                  Submit
+                  {t("installerSubmit")}
                 </button>
               </div>
             </form>

@@ -1,0 +1,20 @@
+{
+  "installerTitle": "App konfigurálás",
+  "databaseConfig": "Adatbázis konfiguráció:",
+  "dbUsername": "Adatbázis Felhasználónév",
+  "dbPassword": "Adatbázis Jelszó",
+  "dbName": "Adatbázis Név",
+  "dbHost": "Host Név",
+  "dbDialect": "Dialektus",
+  "dbDialectOptionMaria": "MariaDB",
+  "dbDialectOptionPost": "PostgreSQL",
+  "apiConfig": "API konfiguráció:",
+  "frontendUrl": "Frontend URL",
+  "smtpText": "Jelenleg csak yahoo felhasználó engedélyezett!",
+  "smtpHost": "SMTP Host",
+  "smtpEmail": "SMTP Email",
+  "smtpPassword": "SMTP Jelszó",
+  "jwtKey": "JWT Kulcs",
+  "apiToken": "API Token",
+  "installerSubmit": "Beküld"
+}
