@@ -31,5 +31,9 @@ yarn-error.log*
 
 /frontend/config.js
 
+error.log
+warning.log
+info.log
+
 # vercel
 .vercel

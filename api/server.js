@@ -36,6 +36,7 @@ if (!configCheck) {
       const syncDB = await models.sequelize.sync();
       console.log("Nice! Database looks fine");
     } catch (error) {
+      utils.writeToLogFile(error, "error");
       console.log(error, "Something went wrong with the Database Update!");
     }
   })();
@@ -43,6 +44,7 @@ if (!configCheck) {
   //APIRoutes
   const apiRoute = require("./routes/apiRoutes.js")(app);
 } else {
+  utils.writeToLogFile("API is in maintenance mode", "warning");
   console.log("API is in maintenance mode");
 
   //setupRoutes
@@ -52,5 +54,8 @@ if (!configCheck) {
 //Create server
 app.listen(5000, function (err) {
   if (!err) console.log("API is live: http://localhost:5000");
-  else console.log(err);
+  else {
+    utils.writeToLogFile(error, "error");
+    console.log(err);
+  }
 });

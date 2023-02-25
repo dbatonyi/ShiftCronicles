@@ -4,6 +4,8 @@ const hbs = require("nodemailer-express-handlebars");
 const config = require("../../config");
 const jwt = require("jsonwebtoken");
 
+let utils = require("../utils");
+
 var exports = (module.exports = {});
 
 exports.apiSignUp = async function (req, res) {
@@ -53,6 +55,7 @@ exports.apiSignUp = async function (req, res) {
           },
         },
         function (error, response) {
+          utils.writeToLogFile(error, "error");
           console.log(error);
           transporter.close();
         }
@@ -156,6 +159,7 @@ exports.apiNewPassHandler = async function (req, res) {
             },
           },
           function (error, response) {
+            utils.writeToLogFile(error, "error");
             console.log(error);
             transporter.close();
           }
