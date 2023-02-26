@@ -7,7 +7,7 @@
   "dbHost": "Host Name",
   "dbDialect": "Dialect",
   "dbDialectOptionMaria": "MariaDB",
-  "dbDialectOptionPost": "PostgreSQL",
+  "dbDialectOptionPostgre": "PostgreSQL",
   "apiConfig": "API config:",
   "frontendUrl": "Frontend URL",
   "smtpText": "Currently only yahoo account is allowed!",

@@ -7,7 +7,7 @@
   "dbHost": "Host Név",
   "dbDialect": "Dialektus",
   "dbDialectOptionMaria": "MariaDB",
-  "dbDialectOptionPost": "PostgreSQL",
+  "dbDialectOptionPostgre": "PostgreSQL",
   "apiConfig": "API konfiguráció:",
   "frontendUrl": "Frontend URL",
   "smtpText": "Jelenleg csak yahoo felhasználó engedélyezett!",

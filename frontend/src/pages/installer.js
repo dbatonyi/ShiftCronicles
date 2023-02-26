@@ -15,6 +15,11 @@ const Installer = () => {
         const data = await fetch(`${config.serverUrl}/api/maintenance-mode`, {
           credentials: "include",
         });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         setLoader(false);
       } catch (error) {
         router.push("/signin");

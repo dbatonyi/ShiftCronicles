@@ -1,4 +1,5 @@
 let authController = require("../controllers/authController");
+let apiController = require("../controllers/apiController");
 
 module.exports = function (app) {
   // API
@@ -16,4 +17,6 @@ module.exports = function (app) {
   app.get("/api/user", authController.apiUser);
 
   app.get("/api/account-confirm/:id", authController.accountConfirm);
+
+  app.post("/api/log", apiController.apiLogs);
 };
