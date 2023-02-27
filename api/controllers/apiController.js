@@ -1,14 +1,12 @@
 const config = require("../../config")["api"];
 
-let utils = require("../utils");
+let utils = require("../helpers/utils");
 
 var exports = (module.exports = {});
 
-exports.apiLogs = async function (req, res) {
-  const { Logs } = require("../models");
+exports.apiLog = async function (req, res) {
+  const { Log } = require("../models");
   const { logMessage, logLevel } = req.body;
-
-  console.log(logMessage, logLevel);
 
   const authenticateToken = req.headers["authenticate"];
 
@@ -17,7 +15,7 @@ exports.apiLogs = async function (req, res) {
   }
 
   try {
-    const log = await Logs.create({
+    const log = await Log.create({
       logMessage,
       logLevel,
     });

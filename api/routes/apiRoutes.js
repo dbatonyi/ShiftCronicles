@@ -18,5 +18,5 @@ module.exports = function (app) {
 
   app.get("/api/account-confirm/:id", authController.accountConfirm);
 
-  app.post("/api/log", apiController.apiLogs);
+  app.post("/api/log", apiController.apiLog);
 };

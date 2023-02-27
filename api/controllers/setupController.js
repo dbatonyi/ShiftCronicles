@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-let utils = require("../utils");
+let utils = require("../helpers/utils");
 
 const config = require("../../config");
 

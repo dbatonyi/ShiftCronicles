@@ -1,34 +1,34 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Logs extends Model {
+  class Log extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+    static associate({ LogLevel }) {
+      // define association here
+      this.belongsTo(LogLevel, { foreignKey: "logLevelId" });
+    }
   }
 
-  Logs.init(
+  Log.init(
     {
       uuid: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
       },
       logMessage: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      logLevel: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
     },
     {
       sequelize,
-      tableName: "logs",
-      modelName: "Logs",
+      tableName: "log",
+      modelName: "Log",
     }
   );
-  return Logs;
+  return Log;
 };

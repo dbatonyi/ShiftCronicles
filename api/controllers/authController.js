@@ -4,7 +4,7 @@ const hbs = require("nodemailer-express-handlebars");
 const config = require("../../config");
 const jwt = require("jsonwebtoken");
 
-let utils = require("../utils");
+let utils = require("../helpers/utils");
 
 var exports = (module.exports = {});
 

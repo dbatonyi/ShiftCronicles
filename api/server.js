@@ -4,7 +4,8 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const config = require("../config")["api"];
-let utils = require("./utils");
+let utils = require("./helpers/utils");
+let dbSync = require("./helpers/dbSync");
 
 //CORS
 app.use(
@@ -34,7 +35,7 @@ if (!configCheck) {
   (async function () {
     try {
       const syncDB = await models.sequelize.sync();
-      console.log("Nice! Database looks fine");
+      dbSync.populateDBTables();
     } catch (error) {
       utils.writeToLogFile(error, "error");
       console.log(error, "Something went wrong with the Database Update!");
@@ -43,6 +44,9 @@ if (!configCheck) {
 
   //APIRoutes
   const apiRoute = require("./routes/apiRoutes.js")(app);
+
+  utils.writeToLogFile("Nice! Database looks fine", "info");
+  console.log("Nice! Database looks fine");
 } else {
   utils.writeToLogFile("API is in maintenance mode", "warning");
   console.log("API is in maintenance mode");
