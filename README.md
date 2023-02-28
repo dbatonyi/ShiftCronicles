@@ -20,3 +20,29 @@ ShiftCronicles is a web-based platform that aims to revolutionize the way compan
 - Multilingualism :heavy_check_mark:
 - Backend log system :heavy_check_mark:
 - App log system :heavy_check_mark:
+
+## Future features:
+
+Creating a Schedule:
+
+1.  The employee has the option to indicate their preferred days off.
+2.  The assignment representative initiates the scheduling process.
+3.  The program generates a schedule. If any conflicts arise with the days off, the schedule manager makes the necessary adjustments.
+
+Overtime Diary:
+
+1.  Employees may request to work overtime, but such requests require approval from their supervisor.
+
+Diary:
+
+1.  The diary shows whether an employee has not met their mandatory number of working hours.
+2.  The prepared timetable allows employees to view their assignments for each day.
+
+Monthly Summary:
+
+1.  The program calculates an employee's total work hours and salary for the month.
+2.  The summary can be printed for record-keeping purposes.
+
+Profile Page:
+
+1.  The profile page displays an employee's scheduled days off.
