@@ -16,5 +16,10 @@
   "smtpPassword": "SMTP Jelszó",
   "jwtKey": "JWT Kulcs",
   "apiToken": "API Token",
-  "installerSubmit": "Beküld"
+  "installerSubmit": "Beküld",
+  "adminTitle": "Administrátor adatok:",
+  "adminEmail": "Administrátor email",
+  "adminPassword": "Administrátor jelszó",
+  "adminFirstname": "Administrátor keresztnév",
+  "adminLastname": "Administrátor vezetéknév"
 }

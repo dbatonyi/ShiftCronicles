@@ -20,6 +20,7 @@ ShiftCronicles is a web-based platform that aims to revolutionize the way compan
 - Multilingualism :heavy_check_mark:
 - Backend log system :heavy_check_mark:
 - App log system :heavy_check_mark:
+- Create admin user via installer :heavy_check_mark:
 
 ## Future features:
 

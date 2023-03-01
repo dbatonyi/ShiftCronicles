@@ -50,6 +50,10 @@ const Installer = () => {
         smtpPassword: formData.get("smtp-password"),
         jwtkey: formData.get("jwt-key"),
         apiToken: formData.get("api-token"),
+        adminEmail: formData.get("admin-email"),
+        adminPassword: formData.get("admin-password"),
+        adminFirstname: formData.get("admin-firstname"),
+        adminLastname: formData.get("admin-lastname"),
       }),
     });
 
@@ -80,6 +84,17 @@ const Installer = () => {
                     {t("dbDialectOptionPostgre")}
                   </option>
                 </select>
+              </div>
+              <div className="form-group">
+                <h3>{t("adminTitle")}</h3>
+                <label htmlFor="admin-email">{t("adminEmail")}</label>
+                <input name="admin-email" type="text" required />
+                <label htmlFor="admin-password">{t("adminPassword")}</label>
+                <input name="admin-password" type="password" required />
+                <label htmlFor="admin-firstname">{t("adminFirstname")}</label>
+                <input name="admin-firstname" type="text" required />
+                <label htmlFor="admin-lastname">{t("adminLastname")}</label>
+                <input name="admin-lastname" type="text" required />
               </div>
               <div className="form-group">
                 <h3>{t("apiConfig")}</h3>

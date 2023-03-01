@@ -16,5 +16,10 @@
   "smtpPassword": "SMTP Password",
   "jwtKey": "JWT Key",
   "apiToken": "API Token",
-  "installerSubmit": "Submit"
+  "installerSubmit": "Submit",
+  "adminTitle": "Admin credentials:",
+  "adminEmail": "Admin email",
+  "adminPassword": "Admin password",
+  "adminFirstname": "Admin firstname",
+  "adminLastname": "Admin lastname"
 }

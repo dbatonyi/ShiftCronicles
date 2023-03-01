@@ -37,6 +37,10 @@ exports.apiInstaller = async function (req, res) {
     smtpPassword,
     jwtkey,
     apiToken,
+    adminEmail,
+    adminFirstname,
+    adminLastname,
+    adminPassword,
   } = req.body;
 
   // Set the properties of the configuration object
@@ -51,6 +55,10 @@ exports.apiInstaller = async function (req, res) {
   config.api.smtpPassword = smtpPassword;
   config.api.jwtkey = jwtkey;
   config.api.apiToken = apiToken;
+  config.adminCredentials.adminEmail = adminEmail;
+  config.adminCredentials.adminFirstname = adminFirstname;
+  config.adminCredentials.adminLastname = adminLastname;
+  config.adminCredentials.adminPassword = adminPassword;
 
   const filePath = "/shiftcronicles/config.js";
 
@@ -59,6 +67,7 @@ exports.apiInstaller = async function (req, res) {
     `module.exports = ${JSON.stringify(config, null, 2)};`
   );
 
+  utils.writeToLogFile("Configuration saved to config.js", "info");
   console.log("Configuration saved to config.js");
 
   res.json({
@@ -66,7 +75,8 @@ exports.apiInstaller = async function (req, res) {
     message: "API config saved",
   });
 
-  console.log("Server shutdown");
+  utils.writeToLogFile("Server shutdown due to new config file", "info");
+  console.log("Server shutdown due to new config file");
 
   return process.kill(process.pid, "SIGTERM");
 };

@@ -6,6 +6,12 @@ module.exports = {
     host: "",
     dialect: "",
   },
+  adminCredentials: {
+    adminEmail: "",
+    adminFirstname: "",
+    adminLastname: "",
+    adminPassword: "",
+  },
   api: {
     frontendUrl: "",
     smtpHost: "",
