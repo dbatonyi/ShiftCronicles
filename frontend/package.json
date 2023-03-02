@@ -8,13 +8,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:styles": "tailwindcss -i ./src/styles/globals.css -o ./src/styles/output.css"
   },
   "dependencies": {
     "next": "13.1.6",
     "next-translate": "^2.0.2",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-preset-env": "^8.0.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "tailwindcss": "^3.2.7"
   },
   "devDependencies": {
     "next-translate-plugin": "^2.0.2"

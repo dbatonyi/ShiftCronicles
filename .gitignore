@@ -35,5 +35,7 @@ error.log
 warning.log
 info.log
 
+output.css
+
 # vercel
 .vercel
