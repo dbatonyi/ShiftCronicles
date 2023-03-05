@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 
 const configCheck = utils.checkConfigFileIsEmpty(config);
 
-if (!configCheck) {
+if (!configCheck && !config.maintenanceMode) {
   //Models
   const models = require("./models");
 

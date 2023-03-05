@@ -18,9 +18,7 @@ exports.maintenanceMode = async function (req, res) {
   }
 
   return res.json({
-    status: "error",
     message: "API is in maintenance mode",
-    errorCode: "API_ERROR",
   });
 };
 

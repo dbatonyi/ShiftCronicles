@@ -19,5 +19,6 @@ module.exports = {
     smtpPassword: "",
     jwtkey: "",
     apiToken: "",
+    maintenanceMode: false,
   },
 };
