@@ -1,4 +1,4 @@
-const config = require("../../config")["api"];
+const config = require("../config")["api"];
 
 let utils = require("../helpers/utils");
 

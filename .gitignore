@@ -27,7 +27,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
-/config.js
+/api/config.js
 
 /frontend/config.js
 

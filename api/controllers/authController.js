@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const nodemailer = require("nodemailer");
 const hbs = require("nodemailer-express-handlebars");
-const config = require("../../config");
+const config = require("../config");
 const jwt = require("jsonwebtoken");
 
 let utils = require("../helpers/utils");

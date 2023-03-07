@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-const config = require("../config")["api"];
+const config = require("./config")["api"];
 let utils = require("./helpers/utils");
 let dbSync = require("./helpers/dbSync");
 

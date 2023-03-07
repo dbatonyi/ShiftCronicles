@@ -2,7 +2,7 @@ const fs = require("fs");
 
 let utils = require("../helpers/utils");
 
-const config = require("../../config");
+const config = require("../config");
 
 var exports = (module.exports = {});
 
@@ -58,7 +58,7 @@ exports.apiInstaller = async function (req, res) {
   config.adminCredentials.adminLastname = adminLastname;
   config.adminCredentials.adminPassword = adminPassword;
 
-  const filePath = "/shiftcronicles/config.js";
+  const filePath = path.join(__dirname, "config.js");
 
   fs.writeFileSync(
     filePath,
