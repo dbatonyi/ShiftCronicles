@@ -28,3 +28,28 @@ exports.apiLog = async function (req, res) {
     return res.send({ message: "Something went wrong!" });
   }
 };
+
+exports.attendance = async function (req, res) {
+  const { UserStatus } = require("../models");
+
+  var userUuid = req.params.id;
+
+  const authenticateToken = req.headers["authenticate"];
+
+  if (!authenticateToken || config.apiToken !== authenticateToken.slice(7)) {
+    return res.send({ message: "API token not valid!" });
+  }
+
+  const [status, created] = await UserStatus.findOrCreate({
+    where: {
+      userUuid: userUuid,
+      leftAt: null,
+    },
+    defaults: {
+      arrivedAt: new Date(),
+      leftAt: null,
+    },
+  });
+
+  console.log(created);
+};

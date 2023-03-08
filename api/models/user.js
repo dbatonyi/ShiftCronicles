@@ -7,9 +7,10 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    /* static associate({ Task }) {
+    static associate({ UserStatus }) {
       // define association here
-    } */
+      this.hasMany(UserStatus, { foreignKey: "userUuid" });
+    }
   }
 
   User.init(
@@ -17,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       uuid: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
       },
       username: {
         type: DataTypes.STRING,

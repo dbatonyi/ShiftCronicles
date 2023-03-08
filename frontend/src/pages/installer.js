@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 

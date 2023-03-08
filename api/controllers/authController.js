@@ -248,7 +248,7 @@ exports.apiSignIn = async function (req, res) {
   //Gerenate an access token
 
   const generateAccessToken = (user) => {
-    return jwt.sign({ id: user.id, role: user.role }, config.api.jwtkey, {
+    return jwt.sign({ id: user.uuid, role: user.role }, config.api.jwtkey, {
       expiresIn: "15m",
     });
   };
@@ -279,7 +279,7 @@ exports.apiUser = async function (req, res) {
       return;
     }
 
-    const user = await User.findOne({ where: { id: claims.id } });
+    const user = await User.findOne({ where: { uuid: claims.id } });
 
     const { password, reghash, resetdate, updatedAt, createdAt, id, ...data } =
       await user.toJSON();

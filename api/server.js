@@ -42,6 +42,9 @@ if (!configCheck && !config.maintenanceMode) {
     }
   })();
 
+  //AuthRoutes
+  const authRoute = require("./routes/authRoutes.js")(app);
+
   //APIRoutes
   const apiRoute = require("./routes/apiRoutes.js")(app);
 
