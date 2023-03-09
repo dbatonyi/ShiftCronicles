@@ -1,6 +1,7 @@
 const config = require("../config")["api"];
 
 let utils = require("../helpers/utils");
+const userStatus = require("../models/userStatus");
 
 var exports = (module.exports = {});
 
@@ -40,16 +41,58 @@ exports.attendance = async function (req, res) {
     return res.send({ message: "API token not valid!" });
   }
 
-  const [status, created] = await UserStatus.findOrCreate({
-    where: {
-      userUuid: userUuid,
-      leftAt: null,
-    },
-    defaults: {
-      arrivedAt: new Date(),
-      leftAt: null,
-    },
-  });
+  function minutesPassedBetweenDates(date1, date2) {
+    const diffInMs = Math.abs(date2 - date1);
+    const diffInMinutes = Math.floor(diffInMs / (1000 * 60));
+    return diffInMinutes;
+  }
 
-  console.log(created);
+  async function updateUserStatus(userUuid, userStatus, startTime, totalTime) {
+    let updatedFields = {};
+
+    if (userStatus === "Arrived") {
+      updatedFields = {
+        userStatus: "Left",
+        endTime: new Date(),
+        totalTime: minutesPassedBetweenDates(startTime, new Date()) + totalTime,
+      };
+    }
+
+    if (userStatus === "Left") {
+      updatedFields = {
+        userStatus: "Arrived",
+        startTime: new Date(),
+      };
+    }
+
+    try {
+      const [numAffectedRows] = await UserStatus.update(updatedFields, {
+        where: {
+          userUuid,
+        },
+      });
+      utils.writeToLogFile(`${numAffectedRows} row(s) updated`, "info");
+      return res.send({
+        message: `Successfully checked ${
+          userStatus === "Arrived" ? "out" : "in"
+        }!`,
+      });
+    } catch (error) {
+      utils.writeToLogFile(error, "error");
+      return res.send({ message: "Something went wrong!" });
+    }
+  }
+
+  try {
+    const userAttendance = await UserStatus.findOne({
+      where: { uuid: userUuid },
+    });
+
+    const { userStatus, startTime, totalTime } = await userAttendance.toJSON();
+
+    updateUserStatus(userUuid, userStatus, startTime, totalTime);
+  } catch (error) {
+    utils.writeToLogFile(error, "error");
+    return res.send({ message: "Something went wrong!" });
+  }
 };

@@ -19,12 +19,24 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.ENUM("Arrived", "Left"),
         defaultValue: "Left",
       },
+      startTime: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+      endTime: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
       arrivedAt: {
         type: DataTypes.DATE,
-        allowNull: false,
+        allowNull: true,
       },
       leftAt: {
         type: DataTypes.DATE,
+        allowNull: true,
+      },
+      totalTime: {
+        type: DataTypes.INTEGER,
         allowNull: true,
       },
     },
